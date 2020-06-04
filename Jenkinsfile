@@ -2,7 +2,7 @@
 
 // load share lib
 @Library('shareLib') _
-def tools = new org.devops.tool
+def tools = new org.devops.tool()
 
 String workspace = "/opt/jenkins/workspace"
 //Pipeline
