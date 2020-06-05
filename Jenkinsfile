@@ -62,7 +62,10 @@ pipeline {
         always {
             script{
                 println("always")
-                tools.printMessage("call shareLib success !!!")
+                tools.printMessage("call shareLib info !!!","blue")
+                tools.printMessage("call shareLib success !!!","green")
+                tools.printMessage("call shareLib success2 !!!","green1")
+                tools.printMessage("call shareLib failed !!!","red")
             }
         }
 
