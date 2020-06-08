@@ -27,37 +27,4 @@ pipeline {
         }
 
     }
-
-
-
-    //构建后操作
-    post {
-        always {
-            script{
-                println("always")
-                tools.printMessage("call shareLib info !!!","blue")
-                tools.printMessage("call shareLib success !!!","green")
-                tools.printMessage("call shareLib success2 !!!","green1")
-                tools.printMessage("call shareLib failed !!!","red")
-            }
-        }
-
-        success {
-            script{
-                currentBuild.description = "\n 构建成功!"
-            }
-        }
-
-        failure {
-            script{
-                currentBuild.description = "\n 构建失败!"
-            }
-        }
-
-        aborted {
-            script{
-                currentBuild.description = "\n 构建取消!"
-            }
-        }
-    }
 }
