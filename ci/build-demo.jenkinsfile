@@ -1,0 +1,63 @@
+#!groovy
+
+// load share lib
+@Library('shareLib'@MASTER) _
+def tools = new org.devops.build()
+
+
+String workspace = "/opt/jenkins/workspace"
+//Pipeline
+pipeline {
+    agent { node {  label "build-1"   //指定运行节点的标签或者名称
+                    customWorkspace "${workspace}"   //指定运行工作目录（可选）
+            }
+    }
+
+    stages {
+
+        stage("Build"){ //阶段名称
+            steps{  //步骤
+                timeout(time:20, unit:"MINUTES"){   //步骤超时时间
+                    script{
+                        println('应用打包')
+                        build.Build("mvn")
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
+    //构建后操作
+    post {
+        always {
+            script{
+                println("always")
+                tools.printMessage("call shareLib info !!!","blue")
+                tools.printMessage("call shareLib success !!!","green")
+                tools.printMessage("call shareLib success2 !!!","green1")
+                tools.printMessage("call shareLib failed !!!","red")
+            }
+        }
+
+        success {
+            script{
+                currentBuild.description = "\n 构建成功!"
+            }
+        }
+
+        failure {
+            script{
+                currentBuild.description = "\n 构建失败!"
+            }
+        }
+
+        aborted {
+            script{
+                currentBuild.description = "\n 构建取消!"
+            }
+        }
+    }
+}
