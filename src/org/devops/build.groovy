@@ -4,12 +4,13 @@ package org.devops
 def Build(buildType){
   def buildTools = ["mvn":"m3", "npm":"npm"]
   println("当前打包的类型为 ${buildType}")
+  String buildShell = ""
   if (buildType == "mvn"){
-    def buildShell = "-v"
+    buildShell = "-v"
   }else if (buildType == "npm"){
-    def buildShell = "-v"
+    buildShell = "-v"
   }else {
-    def buildShell = "-unknown"
+    buildShell = "-unknown"
   }
   buildHome = tool buildTools[buildType]
   sh "${buildHome}/bin/${buildType} ${buildShell}"
