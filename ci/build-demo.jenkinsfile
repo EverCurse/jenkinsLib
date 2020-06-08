@@ -5,7 +5,7 @@
 def tools = new org.devops.build()
 
 
-String workspace = "/opt/jenkins/workspace"
+String workspace = "/opt/jenkins/workspace/demo-maven-app"
 //Pipeline
 pipeline {
     agent { node {  label "build-1"   //指定运行节点的标签或者名称
