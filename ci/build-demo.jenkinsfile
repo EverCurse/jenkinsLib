@@ -1,7 +1,7 @@
 #!groovy
 
 // load share lib
-@Library('shareLib'@MASTER) _
+@Library('shareLib') _
 def tools = new org.devops.build()
 
 
