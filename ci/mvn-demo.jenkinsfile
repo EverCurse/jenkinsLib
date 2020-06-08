@@ -9,7 +9,7 @@ pipeline{
     stage("build"){
       steps{
         script{
-          def mvnHome = tool "M3"
+          def mvnHome = tool "m3"
           sh "${mvnHome}/bin/mvn -v"
         }
       }
