@@ -1,0 +1,18 @@
+pipeline{
+  agent{
+    node {
+      label "build-1"
+    }
+  }
+  
+  stages{
+    stage("build"){
+      steps{
+        script{
+          def mvnHome = tool "M3"
+          sh "${mvnHome}/bin/mvn -v"
+        }
+      }
+    }
+  }
+}
