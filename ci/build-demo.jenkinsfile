@@ -12,6 +12,11 @@ pipeline {
                     customWorkspace "${workspace}"   //指定运行工作目录（可选）
             }
     }
+    
+    environment { 
+        gitUrl = 'https://github.com/EverCurse/simple-java-maven-app'
+        gitBranch = 'master'
+    }
 
     stages {
 
