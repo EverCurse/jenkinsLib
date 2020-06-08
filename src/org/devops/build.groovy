@@ -4,7 +4,6 @@ package org.devops
 def Build(buildType, buildShell){
   def buildTools = ["mvn":"m3", "npm":"npm"]
   println("当前打包的类型为 ${buildType}")
-  String buildShell = ""
   if (buildType == "mvn"){
     println("mvn install package...")
   }else if (buildType == "npm"){
