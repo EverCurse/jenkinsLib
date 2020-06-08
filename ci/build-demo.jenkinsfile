@@ -19,7 +19,14 @@ pipeline {
     }
 
     stages {
-
+        stage("Checkout"){
+            steps{
+                script{
+                    checkout([$class: 'GitSCM', branches: [[name: "${gitBranch}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'b63810c5-48a7-4feb-bc60-149502bb21c7', url: "${gitUrl}"]]])
+                }
+            }
+        }
+        
         stage("Build"){ //阶段名称
             steps{  //步骤
                 timeout(time:20, unit:"MINUTES"){   //步骤超时时间
