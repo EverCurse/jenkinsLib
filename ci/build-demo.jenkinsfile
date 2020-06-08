@@ -32,8 +32,8 @@ pipeline {
                 timeout(time:20, unit:"MINUTES"){   //步骤超时时间
                     script{
                         println('应用打包')
-                        tools.Build("mvn")
-                        tools.Build("npm")
+                        tools.Build("mvn","-B clean package -Dmaven.test.skip=true -Dautoconfig.skip")
+                        tools.Build("npm","-v")
                     }
                 }
             }
