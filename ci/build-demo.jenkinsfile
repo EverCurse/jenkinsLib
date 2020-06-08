@@ -21,6 +21,7 @@ pipeline {
                     script{
                         println('应用打包')
                         tools.Build("mvn")
+                        tools.Build("npm")
                     }
                 }
             }
